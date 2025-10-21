@@ -1,4 +1,4 @@
-# AI Email Response Writer
+# Email Response Writer
 
 ## Project Overview
 **AI Email Response Writer** is a Python-based AI tool designed to help automate professional email responses. The application uses a **node-based workflow** built with **LangGraph**, enabling structured, multi-step processing with AI assistance, memory storage, tool integration, and human approval.
