@@ -1,32 +1,68 @@
-# Email Response Writer
+# AI Email Response Writer
 
 ## Project Overview
+**AI Email Response Writer** is a Python-based AI tool designed to help automate professional email responses. The application uses a **node-based workflow** built with **LangGraph**, enabling structured, multi-step processing with AI assistance, memory storage, tool integration, and human approval.
 
-**Email Response Writer** is an AI-powered tool designed to automate and assist with email responses. It leverages stateful, multi-step AI workflows using **LangGraph**, enabling structured interaction between AI, tools, memory, and human approval.
-
-The project models the workflow as a **graph of nodes**, where each node performs a specific task in the email generation process.
+The system interacts with the **Google Generative AI (Gemini)** model for drafting and improving emails and supports **human-in-the-loop (HITL)** validation to ensure quality.
 
 ---
 
 ## Features
-
-- AI-based email drafting using **Google Generative AI**.
-- Stateful workflow with memory management for context retention.
-- Human approval step to ensure quality and relevance.
-- Integration with custom tools for enhanced processing.
-- Flexible node-based architecture for easy extension.
+- Generate professional, polite email replies using **Gemini-2.0 AI**.
+- Grammar and tone checking via AI-assisted **Tool Node**.
+- Memory storage of past emails for context and reference.
+- Human approval workflow for quality assurance.
+- Conditional branching for low-quality drafts to retry AI generation.
+- Node-based architecture for modular and extensible workflows.
 
 ---
 
-## Architecture
+## Node Architecture
 
-The workflow consists of **6 nodes**:
+The workflow is modeled as a **graph of nodes**:
 
-1. **Input Node** – Captures incoming email or prompt for processing.
-2. **LLM Node** – Processes the input using a language model (Google Generative AI).
-3. **Tool Node** – Uses external tools for tasks like summarization, formatting, or enrichment.
-4. **Memory Node** – Stores and retrieves past interactions for context-aware responses.
-5. **Human Approval Node** – Allows a human to review and approve the AI-generated response.
-6. **Output Node** – Finalizes and sends the approved email response.
+1. **Input Node**
+   - Captures the incoming email from the user.
+   - Initializes the email state.
 
-**Graph Workflow:**
+2. **LLM Node**
+   - Generates the initial draft response using the Gemini model.
+
+3. **Tool Node**
+   - Reviews and corrects grammar, tone, and clarity of the draft.
+
+4. **Conditional Node** (integrated with Tool Node)
+   - Evaluates the draft quality and decides whether to retry LLM or save to memory.
+
+5. **Memory Node**
+   - Saves the email draft and related state to `email_memory.json`.
+
+6. **Human-in-the-Loop (HITL) Node**
+   - Allows a human to approve, reject, or manually edit the draft.
+
+7. **UI Output Node**
+   - Displays the final approved email response.
+
+**Workflow Diagram (simplified):**
+
+Input → LLM → Tool → Conditional → Memory → HITL → UI
+
+
+---
+
+## Technologies & Libraries
+- **Python 3.12.4**
+- **LangGraph** – For stateful, multi-step AI workflows.
+- **LangChain Core** – Structured messages (`HumanMessage`, `AIMessage`).
+- **Google Generative AI (Gemini)** – Core AI model for email generation.
+- **dotenv** – Secure API key management.
+- **JSON** – Storage of past emails and drafts.
+
+---
+
+## Setup Instructions
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/mntc3434/Email-Response-Writer.git
+cd Email-Response-Writer
