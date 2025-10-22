@@ -47,7 +47,7 @@ The workflow is modeled as a **graph of nodes**:
 
 Input → LLM → Tool → Conditional → Memory → HITL → UI
 
-
+![screenshot](https://github.com/mntc3434/Email-Respons-Writer/blob/main/Screenshot%202025-10-21%20114616.png)
 ---
 
 ## Technologies & Libraries
@@ -60,6 +60,27 @@ Input → LLM → Tool → Conditional → Memory → HITL → UI
 
 ---
 
+## How It Works for Users
+1. **Receive Email**  
+   Users input an incoming email into the system.
+
+2. **AI Draft Generation**  
+   The AI (Gemini model) generates a professional draft response based on the input email.
+
+3. **Draft Review & Improvement**  
+   The draft is checked for grammar, tone, and clarity through a specialized AI Tool Node.
+
+4. **Quality Evaluation**  
+   The system evaluates draft quality. If the draft is low-quality, the AI will retry generation automatically.
+
+5. **Human Approval (Optional)**  
+   Users can manually review, approve, edit, or reject the draft to ensure accuracy and appropriateness.
+
+6. **Memory Storage**  
+   Approved emails are saved in `email_memory.json` for context and future reference.
+
+7. **Final Output**  
+   The final approved email is presented to the user for sending.
 ## Setup Instructions
 
 1. **Clone the repository**
