@@ -85,3 +85,5 @@ The workflow is modeled as a **graph of nodes**:
 ```bash
 git clone https://github.com/mntc3434/Email-Response-Writer.git
 cd Email-Response-Writer
+# Install required dependencies
+pip install -r requirements.txt
