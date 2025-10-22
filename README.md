@@ -43,7 +43,7 @@ The workflow is modeled as a **graph of nodes**:
 7. **UI Output Node**
    - Displays the final approved email response.
 
-**Workflow Diagram **
+## Workflow Diagram
 
 ![screenshot](https://github.com/mntc3434/Email-Respons-Writer/blob/main/Screenshot%202025-10-21%20114616.png)
 ---
